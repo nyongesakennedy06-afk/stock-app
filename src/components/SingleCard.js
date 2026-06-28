@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Card = () => {
+const Card = ({ symbol }) => {
     const navigate = useNavigate();
 
     return (
@@ -10,7 +10,7 @@ const Card = () => {
             <div className = "card_body">
                 <h2 className = "card_title">{symbol}</h2>
             </div>
-            <button className = "card_btn" onClick={() => navigate(`/stocks/:${symbol}` , { state: symbol})}>View Details</button>
+            <button className = "card_btn" onClick={() => navigate(`/stocks/${symbol}` , { state: symbol})}>View Details</button>
         </div>
     );
 }

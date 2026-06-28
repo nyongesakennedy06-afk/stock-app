@@ -5,6 +5,7 @@ import axios from 'axios';
 const Slider = () => {
     const [data, setData] = useState(null);
     const apiKey = process.env.REACT_APP_API_KEY;
+    console.log("Key:",apiKey);
 
     useEffect(() => {
         const fetchData = async () => {

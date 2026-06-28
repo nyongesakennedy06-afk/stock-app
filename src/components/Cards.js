@@ -2,11 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/SingleCard';
 import axios from 'axios';
-import Stocks from '../pages/Stocks';
 
 const Cards = ({ searchString }) => {
     const [trend, setTrend] = useState(null);
-    const findValue = (elem) => elem.toLowerCase().includes(searchString.toLoverCase());
+    const findValue = (elem) => elem.toLowerCase().includes(searchString.toLowerCase());
     const apiKey = process.env.REACT_APP_API_KEY;
 
     useEffect (() => {
@@ -22,7 +21,7 @@ const Cards = ({ searchString }) => {
                 const response = await axios.request(options);
                 setTrend(response.data.finance.result[0]);
             } catch (error) {
-                console.error(error);
+                console.error("API Error:", error.response?.status, error.response?.data);
             }
         }
         fetchTrend();
